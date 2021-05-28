@@ -11,7 +11,7 @@ public interface CategoryController {
     public List<Category> getCategories();
     public Optional<Category> getCategory(long id);
     public ResponseEntity<Void> saveCategory(Category category);
-    public Category updateCategory(long category_id, Category category);
+    public Category updateCategory(Category category);
     public void deleteCategory(long category_id);
         
     

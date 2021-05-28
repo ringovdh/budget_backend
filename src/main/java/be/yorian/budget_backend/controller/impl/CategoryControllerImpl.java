@@ -6,13 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import be.yorian.budget_backend.controller.CategoryController;
 import be.yorian.budget_backend.entity.Category;
@@ -55,13 +49,13 @@ public class CategoryControllerImpl implements CategoryController{
     }
 
     @Override
-    @PostMapping("/categories-update/{category_id}")
-    public Category updateCategory(@PathVariable("category_id")long category_id, @RequestBody Category category) {
-        return categoryService.updateCategory(category_id, category);
+    @PutMapping("/categories")
+    public Category updateCategory(@RequestBody Category category) {
+        return categoryService.updateCategory(category);
     }
     
     @Override
-    @DeleteMapping("categories-delete/{category_id}")
+    @DeleteMapping("categories/{category_id}")
     public void deleteCategory(@PathVariable("category_id") long category_id) {
         categoryService.deleteCategory(category_id);
     }
