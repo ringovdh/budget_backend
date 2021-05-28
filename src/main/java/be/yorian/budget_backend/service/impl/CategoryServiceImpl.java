@@ -40,10 +40,10 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-    public Category updateCategory(long id, Category category) {
+    public Category updateCategory(Category category) {
         
-		if (categoryRepository.findById(id).isPresent()) {
-            Category existingCategory = categoryRepository.findById(id).get();
+		if (categoryRepository.findById(category.getId()).isPresent()) {
+            Category existingCategory = categoryRepository.findById(category.getId()).get();
             existingCategory.setLabel(category.getLabel());
             return categoryRepository.save(existingCategory);
         } else {

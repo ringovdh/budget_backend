@@ -25,7 +25,7 @@ public class CommentServiceImpl implements CommentService{
 	
 	@Override
 	public List<Comment> getComments() {
-		return (List<Comment>) commentRepository.findAll(sortBySearchterm());
+		return commentRepository.findAll(sortBySearchterm());
 	}
 	
 	@Override
@@ -40,9 +40,9 @@ public class CommentServiceImpl implements CommentService{
 	}
 	
 	@Override
-	public Comment updateComment(Long id, Comment comment) {
-		if(commentRepository.findById(id).isPresent()) {
-			Comment existingComment = commentRepository.findById(id).get();
+	public Comment updateComment(Comment comment) {
+		if(commentRepository.findById(comment.getId()).isPresent()) {
+			Comment existingComment = commentRepository.findById(comment.getId()).get();
 			existingComment.setSearchterm(comment.getSearchterm());
 			existingComment.setReplacement(comment.getReplacement());
 			existingComment.setCategory(comment.getCategory());

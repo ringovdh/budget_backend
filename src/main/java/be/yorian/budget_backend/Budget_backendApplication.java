@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Import;
 public class Budget_backendApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(Budget_backendApplication.class, args);
 	}
 

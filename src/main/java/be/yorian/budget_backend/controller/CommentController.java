@@ -9,6 +9,6 @@ public interface CommentController {
     public List<Comment> getComments();
     public Optional<Comment> getCommentById(Long comment_id);
     public void saveComment(Comment comment);
-    public Comment updateComment(Long comment_id, Comment comment);
+    public Comment updateComment(Comment comment);
     public void deleteComment(Long comment_id);
 }
